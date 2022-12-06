@@ -1,0 +1,28 @@
+<%- include('components/html') %> 
+<%- include('components/header') %>
+<main>
+    <h1>Hello World</h1>
+    <p>Welcome to my contact page, <%= name %></p>
+    <% if (contact.length < 1) { %>
+        <p>Data contact is not available</p>
+    <% } else { %>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <% titles = ['No', 'Nama', 'Email'] %> 
+                <% titles.forEach(head => { %>
+                    <th><%= head %></th> 
+                <% }); %> 
+            </thead>
+            <tbody>
+                <% contact.forEach((row, i) => { %>
+                    <tr>
+                        <td><%= i+1 %></td>
+                        <td><%= row.name %></td>
+                        <td><%= row.email %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } %>
+</main>
+<%- include('components/footer') %>
